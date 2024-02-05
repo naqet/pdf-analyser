@@ -1,12 +1,11 @@
 import { type Config } from "drizzle-kit";
-
 import { env } from "~/env";
 
 export default {
   schema: "./src/server/db/schema.ts",
-  driver: "mysql2",
+  driver: "better-sqlite",
   dbCredentials: {
-    uri: env.DATABASE_URL,
+      url: env.DB_URL
   },
-  tablesFilter: ["pdf-analyser_*"],
+  out: "./drizzle",
 } satisfies Config;
